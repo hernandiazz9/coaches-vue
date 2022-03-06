@@ -6,7 +6,7 @@ export default {
     };
 
     const response = await fetch(
-      `https://coach-app-dbe38-default-rtdb.firebaseio.com/request/${payload.coachId}.json`,
+      `url/request/${payload.coachId}.json`,
       {
         method: "POST",
         body: JSON.stringify(newRequest),
@@ -27,7 +27,7 @@ export default {
     const coachId = context.rootGetters.userId;
     const token = context.rootGetters.token;
     const response = await fetch(
-      `https://coach-app-dbe38-default-rtdb.firebaseio.com/request/${coachId}.json?auth=${token}`
+      `url/request/${coachId}.json?auth=${token}`
     );
     const responseData = await response.json();
     if (!response.ok) {

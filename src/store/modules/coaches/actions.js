@@ -10,7 +10,7 @@ export default {
     };
     const token = context.rootGetters.token;
     const response = await fetch(
-      `https://coach-app-dbe38-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=${token}`,
+      `url/${userId}.json?auth=${token}`,
       {
         method: "PUT",
         body: JSON.stringify(coachData),
@@ -29,7 +29,7 @@ export default {
   async loadCoaches(context, payload) {
     if (!payload.force && !context.getters.shouldUpdate) return;
     const response = await fetch(
-      `https://coach-app-dbe38-default-rtdb.firebaseio.com/coaches.json`
+      `url`
     );
     const responseData = await response.json();
     if (!response.ok) {
